@@ -4,7 +4,7 @@ import './App.css'
 import Routes from './Routes/Routes';
 import { getAll, update } from './BooksAPI';
 
-class BooksApp extends React.Component {
+class BooksApp extends Component {
   state = {
     books: []
   }

@@ -20,7 +20,6 @@ class SearchBooksPage extends Component {
 
   _onChange = (searchTerm) => {
     this.setState({ searchTerm });
-    const { searchCache } = this.state;
     const bookState = this.props.books;
     const trimSearchTerm = searchTerm.trim();
 
