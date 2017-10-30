@@ -162,6 +162,9 @@ body, .app {
 }
 
 /* book cover */
+.book .book-cover {
+  cursor: pointer;
+}
 
 .book-cover {
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -172,3 +175,83 @@ body, .app {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* Loader Component */
+
+.loader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  padding: 10px 0;
+}
+
+.loader-image {
+  height: 6rem;
+  width: 6rem;
+}
+
+/* book page */
+
+.book-page-title {
+  padding: 10px 0;
+  background: #2e7c31;
+
+}
+.book-page-title h1 {
+  display: inline-block;
+  font-weight: 400;
+  margin: 0;
+  color: white;
+}
+
+.book-page-back {
+  cursor: pointer;
+  display: inline-block;
+  top: 20px;
+  left: 15px;
+  width: 50px;
+  height: 53px;
+  background: #2e7c31;
+  background-image: url('./icons/arrow-back-white.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 28px;
+  font-size: 0;
+  vertical-align: top;
+}
+
+.book-page-content {
+  padding: 0 0 80px;
+  flex: 1;
+}
+
+.book-page-content-container {
+  padding: 0 10px 20px;
+}
+
+.book-main-details .book-top {
+  width: 128px;
+}
+
+.book-main-details .book-description {
+  margin: 30px 0;
+}
+
+.book-other-details > span {
+  padding-right: 10px;
+}
+.book-other-details > span > span {
+  font-weight: bold;
+}
+
+@media (min-width: 600px) {
+  .book-page-content-container {
+    padding: 0 20px 40px;
+  }
+}
+
+.book-page-content-author {
+  border-bottom: 1px solid #dedede;
+}
+
