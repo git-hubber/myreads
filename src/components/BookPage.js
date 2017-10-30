@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Link, history } from 'react-router-dom';
 
 import { get as getBook } from '../BooksAPI';
 import Loading from './Loading';
@@ -39,7 +38,6 @@ class BookPage extends Component {
       authors,
       description,
       imageLinks: {
-        smallThumbnail,
         thumbnail
       },
       pageCount,
@@ -66,7 +64,7 @@ class BookPage extends Component {
               </h2>}
               <div className="book-main-details">
                 <div className="book-top">
-                  <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${smallThumbnail})` }}></div>
+                  <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${thumbnail})` }}></div>
                   <div className="book-shelf-changer">
                     <select
                       onChange={(e) => {

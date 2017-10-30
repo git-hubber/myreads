@@ -30,7 +30,7 @@ class SearchBooksPage extends Component {
         this.setState({ searchState: 2 });
 
         if (result.length) {
-          result.map((book) => {
+          result.forEach((book) => {
             let shelf = 'none';
             bookState.map((b) => b.id === book.id ? shelf = b.shelf : '');
             book.shelf = shelf;
