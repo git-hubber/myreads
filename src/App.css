@@ -231,6 +231,8 @@ body, .app {
 }
 
 .book-main-details .book-top {
+  float: left;
+  margin-right: 30px;
   width: 128px;
 }
 

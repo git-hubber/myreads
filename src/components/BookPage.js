@@ -36,11 +36,13 @@ class BookPage extends Component {
     const {
       id,
       authors,
+      categories = [],
       description,
       imageLinks: {
         thumbnail
       },
       pageCount,
+      previewLink,
       publishedDate,
       shelf,
       title
@@ -83,9 +85,15 @@ class BookPage extends Component {
                 <div className="book-description">{description}</div>
               </div>
               <div className="book-other-details">
-                <span><span>Pages:</span> {pageCount}</span>
+              {categories && <span><span>Categories:</span> {`${categories.join(', ')}`}</span>}
+              <span><span>Pages:</span> {pageCount}</span>
                 <span><span>Published:</span> {publishedDate}</span>
               </div>
+              {previewLink &&
+              <div>
+                <a href={previewLink} target='_blank'>Preview book</a>
+              </div>
+              }
             </div>
           </div>
         </div>
