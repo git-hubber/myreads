@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { get as getBook } from '../BooksAPI';
 import Loading from './Loading';
+import BookInner from './BookInner';
 
 class BookPage extends Component {
   static propTypes = {
@@ -65,23 +66,12 @@ class BookPage extends Component {
                 {`by ${authors.join(', ')}`}
               </h2>}
               <div className="book-main-details">
-                <div className="book-top">
-                  <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${thumbnail})` }}></div>
-                  <div className="book-shelf-changer">
-                    <select
-                      onChange={(e) => {
-                        this._onChange(id, e.target.value);
-                      }}
-                      value={shelf}
-                    >
-                      <option value="none" disabled>Move to...</option>
-                      <option value="currentlyReading">Currently Reading</option>
-                      <option value="wantToRead">Want to Read</option>
-                      <option value="read">Read</option>
-                      <option value="none">None</option>
-                    </select>
-                  </div>
-                </div>
+                <BookInner
+                  id={id}
+                  onChange={this._onChange}
+                  thumbnail={thumbnail}
+                  shelf={shelf}
+                />
                 <div className="book-description">{description}</div>
               </div>
               <div className="book-other-details">

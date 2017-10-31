@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import _ from 'lodash';
 
 import { search } from '../BooksAPI';
 import Book from './Book';
@@ -18,8 +19,7 @@ class SearchBooksPage extends Component {
     searchState: 0, // 0 - no search, 1 - searching, 2 - searched
   }
 
-  _onChange = (searchTerm) => {
-    this.setState({ searchTerm });
+  _doSearch = _.debounce((searchTerm) => {
     const bookState = this.props.books;
     const trimSearchTerm = searchTerm.trim();
 
@@ -42,7 +42,12 @@ class SearchBooksPage extends Component {
     } else {
       this.setState({ searchState: 0 });
     }
-  };
+  }, 500);
+
+  _onChange = (searchTerm) => {
+    this.setState({ searchTerm });
+    this._doSearch(searchTerm);
+  }
 
   render() {
     const {
@@ -56,12 +61,19 @@ class SearchBooksPage extends Component {
         <div className="search-books-bar">
           <Link to="/" className="close-search">Close</Link>
           <div className="search-books-input-wrapper">
-            <input
-              type="text"
-              placeholder="Search by title or author"
-              onChange={(e) => this._onChange(e.target.value)}
-              value={searchTerm}
-            />
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                this._doSearch(searchTerm);
+              }}
+            >
+              <input
+                type="text"
+                placeholder="Search by title or author"
+                onChange={(e) => this._onChange(e.target.value)}
+                value={searchTerm}
+              />
+            </form>
           </div>
         </div>
         <div className="search-books-results">

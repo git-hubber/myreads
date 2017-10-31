@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import * as BooksAPI from './BooksAPI'
+
 import './App.css'
 import Routes from './Routes/Routes';
 import { getAll, update } from './BooksAPI';
@@ -10,16 +10,13 @@ class BooksApp extends Component {
   }
 
   _fetchBooks = () => {
-    let stateBooks = [];
-
     getAll().then((books) => {
-      books.map((book) => stateBooks.push(book));
-      this.setState({ books: stateBooks });
+      this.setState({ books });
     });
   }
 
   _updateBooks = (id, shelf) => {
-    update({ id }, shelf).then(this._fetchBooks());
+    update({ id }, shelf).then(this._fetchBooks);
   }
 
   componentDidMount() {

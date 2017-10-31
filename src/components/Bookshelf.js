@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Book from './Book';
 
-const Bookshelf = ({books, updateBooks, title}) => (
+const Bookshelf = ({ books, updateBooks, title }) => (
   <div className="bookshelf">
     <h2 className="bookshelf-title">{title}</h2>
     <div className="bookshelf-books">
