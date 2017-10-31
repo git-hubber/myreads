@@ -18,3 +18,6 @@ npm install
 4. Run React server
 ```bash
 npm start
+
+## 🚀 Live version deployed on Heroku
+https://reactjs-myreads.herokuapp.com/
