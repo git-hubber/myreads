@@ -20,4 +20,4 @@ npm install
 npm start
 
 ## 🚀 Live version deployed on Heroku
-https://reactjs-myreads.herokuapp.com/
+[https://reactjs-myreads.herokuapp.com/](https://reactjs-myreads.herokuapp.com/)
